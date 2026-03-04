@@ -2,7 +2,6 @@ from grid import Grid
 from astar import astar
 from markov import build_transition_matrix, simulate_markov, compute_exact_absorption, analyze_markov_classes
 from utils import plot_comparison_algorithms, plot_epsilon_impact, plot_grid
-
 def create_grids():
     easy   = Grid(5, 5, obstacles=[(2,2)], start=(0,0), goal=(4,4))
     medium = Grid(5, 5, obstacles=[(1,1),(1,2),(3,2),(3,3)], start=(0,0), goal=(4,4))
@@ -42,7 +41,6 @@ def run_experiments():
         p_success, avg_time = simulate_markov(P, start_idx, goal_idx, n_sim=10000)
         print(f"Probabilité GOAL (simulation ε=0.2) : {p_success:.4f}  (temps moyen {avg_time:.1f} pas)")
         
-        # APPEL CORRIGÉ (avec states et idx)
         p_exact = compute_exact_absorption(P, start_idx, goal_idx, states, idx)
         print(f"Probabilité EXACTE (matrice fondamentale) : {p_exact:.4f}")
 
@@ -70,7 +68,7 @@ def run_experiments():
     plot_comparison_algorithms(algo_results)
     plot_epsilon_impact(epsilons, epsilon_probs)
 
-    print("\n✅ Tout est terminé ! Fichiers PNG générés.")
+    print("\n Tout est terminé !")
 
 if __name__ == "__main__":
     run_experiments()

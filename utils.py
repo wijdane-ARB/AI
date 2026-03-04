@@ -1,7 +1,7 @@
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle   # ← FIX IMPORTANT
+from matplotlib.patches import Rectangle   
 
 def plot_comparison_algorithms(results):
     names = [r['name'] for r in results]
